@@ -5,8 +5,8 @@ import Footer from './components/Footer/Footer';
 import configureStore from './store/configureStore.dev';
 import {Provider} from 'react-redux';
 import {rootSaga} from './views/users/controllers/sagas'
-import styles  from "./assets/css/app.module.css";
 import CssBaseline from '@material-ui/core/CssBaseline';
+import AppLayout from './Layouts/AppLayout';
 
 // import rootReducer from './rootReducer';
 // import createSagaMiddleware from 'redux-saga'
@@ -28,9 +28,9 @@ class App extends Component {
         <React.Fragment>
             <CssBaseline />
             <Header/>
-            <div className={styles.appLayoutMain}>
+            <AppLayout>
               <AppRouter/>
-            </div>
+            </AppLayout>
             <Footer/>
         </React.Fragment>
       </Provider>

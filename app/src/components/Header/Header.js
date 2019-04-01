@@ -23,7 +23,7 @@ const styles = theme => ({
   appBar: {
     height: '75px',
     // backgroundColor: 'rgba(0, 0, 0, 0.4)'
-    backgroundColor: grey[800]
+    backgroundColor: grey[900]
   },
   toolBar: {
     height: '100%',
@@ -48,7 +48,6 @@ const styles = theme => ({
 
 class Header extends Component {
   render() {
-    console.log(this.props);
     let pathName= window.location.pathname;
     let pathNameLower = pathName ? pathName.toLowerCase() : '';
     let classes = this.props.classes;

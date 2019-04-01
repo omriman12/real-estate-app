@@ -24,8 +24,6 @@ const styles = {
 
 function HeaderButtonDesktop(props) {
   const { classes } = props;
-  console.log(props)
-  console.log(styles)
   return <Button component={props.component} to={props.to} className={classes.root} color={props.color}>{props.children}</Button>;
 }
 

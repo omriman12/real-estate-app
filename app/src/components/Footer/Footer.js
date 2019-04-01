@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import grey from '@material-ui/core/colors/grey';
 
-import BottomNavigation from '@material-ui/core/BottomNavigation';
 import { withStyles  } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { List, ListItem } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/PhoneInTalk';
@@ -20,11 +18,10 @@ import AppUrls from '../../model/constants/AppUrls';
 const styles = theme => ({
   footerMain: {
     color: grey[500],
-    backgroundColor: grey[800],
+    backgroundColor: grey[900],
     height: 'inherit',
   },
   footerContentWrapper: {
-    // backgroundColor: grey[800],
     padding: theme.spacing.unit * 2,
     margin: 'auto',
     // maxWidth: 500,
@@ -72,11 +69,10 @@ class Footer extends Component {
   }
 
   render() {
-    console.log(this.props);
     let classes = this.props.classes;
     
     return (
-      <BottomNavigation className={classes.footerMain}>
+      <div className={classes.footerMain}>
         <div className={classes.footerContentWrapper}>
           <Grid container spacing={40}>
             <Grid item xs={4} sm={4} md={4}>
@@ -143,14 +139,13 @@ class Footer extends Component {
             </Grid>
           </Grid>
         </div>
-      </BottomNavigation>
+      </div>
     ) 
   }
 }
 
 Footer.propTypes = {
-  // classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
-// export default Footer;
 
 export default withStyles(styles)(Footer);

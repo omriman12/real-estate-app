@@ -2,7 +2,7 @@ import * as constActions from './const';
 import initialState from './initialState';
 
 export default function reducer(state = initialState, action) {
-    console.log( action)
+    // console.log( action)
     switch (action.type) {
         case constActions.GET_USERS_SUCCESS:
             return Object.assign({}, state, {

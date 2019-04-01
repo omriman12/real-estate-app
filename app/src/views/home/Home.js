@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import styles  from "./css/home.module.css";
-
+import Grid from '@material-ui/core/Grid';
+import SliderSection from './components/SliderSection';
+  
 class Home extends Component {
     render() {
         return (
-            <div >
-                ראשי
-
-                <div className={styles.className1}>
-                    css test
-                </div>
-            </div>
+            <React.Fragment>
+                <SliderSection/>
+            </React.Fragment>
         );
     }
 }
