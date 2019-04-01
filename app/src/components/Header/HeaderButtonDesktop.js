@@ -9,7 +9,9 @@ const styledBy = (property, mapping) => props => mapping[props[property]];
 const styles = {
   root: {
     height: '100%',
-    color: 'white',
+    width: '100px',
+    fontWeight: 'bold',
+    color: grey[100],
     backgroundColor: styledBy("isActive", {
       true: grey[500],
       false: 'transparent'
@@ -20,17 +22,17 @@ const styles = {
   },
 };
 
-function HeaderButton(props) {
+function HeaderButtonDesktop(props) {
   const { classes } = props;
   console.log(props)
   console.log(styles)
   return <Button component={props.component} to={props.to} className={classes.root} color={props.color}>{props.children}</Button>;
 }
 
-HeaderButton.propTypes = {
+HeaderButtonDesktop.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(HeaderButton);
+export default withStyles(styles)(HeaderButtonDesktop);
 
 

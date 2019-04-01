@@ -4,52 +4,72 @@ import { Link } from 'react-router-dom'
 
 import AppBar from "@material-ui/core/AppBar";
 import { withStyles  } from '@material-ui/core/styles';
-// import { makeStyles } from '@material-ui/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import { CenterFocusStrong } from '@material-ui/icons';
+import MoreIcon from '@material-ui/icons/MoreVert';
+import grey from '@material-ui/core/colors/grey';
+
+//components
 import AppUrls from '../../model/constants/AppUrls';
-import HeaderButton from './HeaderButton';
+import HeaderButtonDesktop from './HeaderButtonDesktop';
 
 
-const styles = {
+
+const styles = theme => ({
+  grow: {
+    flexGrow: 1,
+  },
   appBar: {
-    'height': '75px',
-    'background-color': '#28282a'
+    height: '75px',
+    // backgroundColor: 'rgba(0, 0, 0, 0.4)'
+    backgroundColor: grey[800]
   },
   toolBar: {
-    'height': '100%',
-    // 'display': 'flex',
-    // 'justify-content': 'center'
+    height: '100%',
   },
-  logo: {
-    'margin-right': '30%'
+  // logo: {
+  //   'margin-right': '50%'
+  // },
+  navBarItemsDesktop: {
+    height: '100%',
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
   },
-  logo: {
-    'margin-right': '30%'
+  navBarItemsMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
   },
-
-};
+});
 
 class Header extends Component {
   render() {
     console.log(this.props);
     let pathName= window.location.pathname;
     let pathNameLower = pathName ? pathName.toLowerCase() : '';
-    console.log(pathName);
+    let classes = this.props.classes;
     
     return (
-      <AppBar position="fixed" className={this.props.classes.appBar}>
-          <Toolbar className={this.props.classes.toolBar}>
-            <Button className={this.props.classes.logo} color="inherit" component={Link} to={AppUrls.Home.Root}>נדל"ן המאה</Button>
-            <HeaderButton isActive={pathNameLower === AppUrls.Assets.Root.toLocaleLowerCase()} color="inherit" component={Link} to={AppUrls.Assets.Root}>נכסים</HeaderButton>
-            <HeaderButton isActive={pathNameLower === AppUrls.About.Root.toLocaleLowerCase()} color="inherit" component={Link} to={AppUrls.About.Root}>אודות</HeaderButton>
-            <HeaderButton isActive={pathNameLower === AppUrls.Contact.Root.toLocaleLowerCase()} color="inherit" component={Link} to={AppUrls.Contact.Root}>צור קשר</HeaderButton>
+      <AppBar position="fixed" className={classes.appBar}>
+          <Toolbar className={classes.toolBar}>
+            <Button className={classes.logo} color="inherit" component={Link} to={AppUrls.Home.Root}>נדל"ן המאה</Button>
+
+            <div className={classes.grow} />
+            <div className={classes.navBarItemsDesktop}>
+              <HeaderButtonDesktop isActive={pathNameLower === AppUrls.About.Root.toLocaleLowerCase()} color="inherit" component={Link} to={AppUrls.About.Root}>אודות</HeaderButtonDesktop>
+              <HeaderButtonDesktop isActive={pathNameLower === AppUrls.Contact.Root.toLocaleLowerCase()} color="inherit" component={Link} to={AppUrls.Contact.Root}>צור קשר</HeaderButtonDesktop>
+              <HeaderButtonDesktop isActive={pathNameLower === AppUrls.Assets.Root.toLocaleLowerCase()} color="inherit" component={Link} to={AppUrls.Assets.Root}>נכסים</HeaderButtonDesktop>
+              <HeaderButtonDesktop isActive={pathNameLower === AppUrls.Home.Root.toLocaleLowerCase()} color="inherit" component={Link} to={AppUrls.Home.Root}>ראשי</HeaderButtonDesktop>
+            </div>
+            <div className={classes.navBarItemsMobile}>
+              <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
+                <MoreIcon />
+              </IconButton>
+            </div>
           </Toolbar>
       </AppBar>
     ) 
@@ -57,8 +77,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  // classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
-// export default Header;
 
 export default withStyles(styles)(Header);

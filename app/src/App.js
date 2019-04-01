@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppRouter from './AppRouter';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import configureStore from './store/configureStore.dev';
 import {Provider} from 'react-redux';
 import {rootSaga} from './views/users/controllers/sagas'
@@ -30,6 +31,7 @@ class App extends Component {
             <div className={styles.appLayoutMain}>
               <AppRouter/>
             </div>
+            <Footer/>
         </React.Fragment>
       </Provider>
     );
