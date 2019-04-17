@@ -65,9 +65,19 @@ const styles = theme => ({
   contactRowTitle:{
     marginRight: theme.spacing.unit
   },
+  linksTitle:{
+    display: 'flex',
+    justifyContent: 'center'
+  },
   linksWrapper:{
-    float: 'right'
-  }
+    float: 'right',
+    padding: 0,
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  linksItemFirst:{
+    paddingTop: 0,
+  },
 });
 
 class Footer extends Component {
@@ -89,14 +99,24 @@ class Footer extends Component {
           <Grid container spacing={40}>
             <Grid item xs={4} sm={4} md={4}>
               <Grid container direction="column" spacing={40}>
-                <Grid item >
-                    <Typography className={classes.footerColumnTitle}>אודות</Typography>
+                <Grid item className={classes.linksTitle}>
+                    <Typography className={classes.footerColumnTitle}>לינקים חשובים</Typography>
                 </Grid>
-                <Grid item>
-                  <img src={footer_property} alt="property"/>
-                </Grid>
-                <Grid item>
-                    אנו חברת תיווך
+                <Grid item className={classes.linksWrapper} >
+                  <List >
+                    <ListItem className={classes.linksItemFirst}>
+                      <Button color="inherit" component={Link} to={AppUrls.Home.Root}>ראשי</Button>
+                    </ListItem>
+                    <ListItem>
+                      <Button color="inherit" component={Link} to={AppUrls.Assets.Root}>נכסים</Button>
+                    </ListItem>
+                    <ListItem>
+                      <Button color="inherit" component={Link} to={AppUrls.Contact.Root}>צור קשר</Button>
+                    </ListItem>
+                    <ListItem>
+                      <Button color="inherit" component={Link} to={AppUrls.About.Root}>אודות</Button>
+                    </ListItem>
+                  </List>
                 </Grid>
               </Grid>
             </Grid>
@@ -132,23 +152,13 @@ class Footer extends Component {
             <Grid item xs={4} sm={4} md={4}>
               <Grid container direction="column" spacing={40}>
                 <Grid item >
-                    <Typography className={classes.footerColumnTitle}>לינקים חשובים</Typography>
+                    <Typography className={classes.footerColumnTitle}>אודות</Typography>
                 </Grid>
                 <Grid item>
-                  <List className={classes.linksWrapper}>
-                    <ListItem>
-                      <Button color="inherit" component={Link} to={AppUrls.Home.Root}>ראשי</Button>
-                    </ListItem>
-                    <ListItem>
-                      <Button color="inherit" component={Link} to={AppUrls.Assets.Root}>נכסים</Button>
-                    </ListItem>
-                    <ListItem>
-                      <Button color="inherit" component={Link} to={AppUrls.Contact.Root}>צור קשר</Button>
-                    </ListItem>
-                    <ListItem>
-                      <Button color="inherit" component={Link} to={AppUrls.About.Root}>אודות</Button>
-                    </ListItem>
-                  </List>
+                  <img src={footer_property} alt="property"/>
+                </Grid>
+                <Grid item>
+                    אנו חברת תיווך
                 </Grid>
               </Grid>
             </Grid>
