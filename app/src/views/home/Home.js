@@ -6,7 +6,9 @@ import { withStyles  } from '@material-ui/core/styles';
 
 //components
 import SliderSection from './components/SliderSection';
-  
+import PromotedAssetsSection from './components/PromotedAssetsSection';
+import SearchAssetsSection from './components/SearchAssetsSection';
+
 
 const styles = theme => ({
     
@@ -18,6 +20,12 @@ class Home extends Component {
             <React.Fragment>
                 <section>
                     <SliderSection/>
+                </section>
+                <section>
+                    <PromotedAssetsSection/>
+                </section>
+                <section>
+                    <SearchAssetsSection/>
                 </section>
             </React.Fragment>
         );

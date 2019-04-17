@@ -11,6 +11,9 @@ const AppUrls = {
     Contact:{
         Root: '/Contact'
     },
+    Login:{
+        SignIn: '/SignIn'
+    },
     Assets:{
         Root: '/Assets'
     },

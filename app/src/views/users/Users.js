@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import * as actions from './controllers/actions';
 import Button from '@material-ui/core/Button';
 
+//components
+import AppContentLayout from '../../Layouts/AppContentLayout';
+import AppTitleLayout from '../../Layouts/AppTitleLayout';
+
 class Users extends Component {
     constructor(props){
         super(props);
@@ -38,22 +42,25 @@ class Users extends Component {
     render() {
         console.log(this.props);
         return (
-            <div>
-                <div className="up__title">
+            
+            <React.Fragment>
+                <AppTitleLayout>
                     Users page
-                </div>
+                </AppTitleLayout>
+                <AppContentLayout>
+                    <input type="text" placeholder="your user" value={this.state.userName} onChange={this.onUserAddChange}/>
+                    
+                    <Button variant="contained" color="primary" onClick={this.onUserAddClick}>
+                        Add
+                    </Button>
 
-                <input type="text" placeholder="your user" value={this.state.userName} onChange={this.onUserAddChange}/>
-                
-                <Button variant="contained" color="primary" onClick={this.onUserAddClick}>
-                    Add
-                </Button>
+                    <div className="up__users-list"> 
+                        {this.props.users.map( (user, index) => <div key={index}>{user}</div>)}   
+                    </div>
 
-                <div className="up__users-list"> 
-                    {this.props.users.map( (user, index) => <div key={index}>{user}</div>)}   
-                </div>
-
-            </div>
+                </AppContentLayout>
+            </React.Fragment>
+           
         );
     }
 }

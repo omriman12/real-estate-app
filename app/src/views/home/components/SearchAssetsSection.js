@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-class PromotedAssetsSection extends Component {
+class SearchAssetsSection extends Component {
     render() {
         return (
             <React.Fragment>
                 <Grid container>
                     <Grid item xs={12} sm={12} md={12}>
-                        promoted assets section
+                        search assets
                     </Grid>
                 </Grid>
             </React.Fragment>
@@ -15,4 +15,4 @@ class PromotedAssetsSection extends Component {
     }
 }
 
-export default PromotedAssetsSection;
+export default SearchAssetsSection;

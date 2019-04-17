@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
-import grey from '@material-ui/core/colors/grey';
 
+//utils
+import classnames from 'classnames';
+
+//material ui
 import { withStyles  } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -11,15 +14,19 @@ import { List, ListItem } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/PhoneInTalk';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationIcon from '@material-ui/icons/LocationOn';
+import grey from '@material-ui/core/colors/grey';
 
 //components
 import AppUrls from '../../model/constants/AppUrls';
+import footer_property from '../../assets/img/footer_property.jpg';
+
 
 const styles = theme => ({
   footerMain: {
     color: grey[500],
     backgroundColor: grey[900],
     height: 'inherit',
+    textAlign: 'right'
   },
   footerContentWrapper: {
     padding: theme.spacing.unit * 2,
@@ -37,6 +44,10 @@ const styles = theme => ({
     fontWeight: 'bold'
   },
   hoursWrapper:{
+    padding: 0,
+  },
+  hoursRowFirst:{
+    paddingTop: 0,
   },
   hoursRow:{
     borderBottom: '2px solid',
@@ -44,7 +55,7 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'space-between',
     paddingLeft: 0,
-    paddingRight: 0
+    paddingRight: 0,
   },
   contactRow:{
     paddingBottom: theme.spacing.unit * 1.5,
@@ -61,8 +72,8 @@ const styles = theme => ({
 
 class Footer extends Component {
 
-  mapHoursRow(classes, leftText, rightText){
-      return <ListItem className={classes.hoursRow}>
+  mapHoursRow(className, leftText, rightText){
+      return <ListItem className={className}>
         <Typography color='inherit'>{leftText}</Typography>
         <Typography color='inherit'>{rightText} </Typography>
       </ListItem>
@@ -70,6 +81,7 @@ class Footer extends Component {
 
   render() {
     let classes = this.props.classes;
+    
     
     return (
       <div className={classes.footerMain}>
@@ -79,6 +91,9 @@ class Footer extends Component {
               <Grid container direction="column" spacing={40}>
                 <Grid item >
                     <Typography className={classes.footerColumnTitle}>אודות</Typography>
+                </Grid>
+                <Grid item>
+                  <img src={footer_property} alt="property"/>
                 </Grid>
                 <Grid item>
                     אנו חברת תיווך
@@ -92,9 +107,9 @@ class Footer extends Component {
                 </Grid>
                 <Grid item>
                     <List className={classes.hoursWrapper}>
-                      {this.mapHoursRow(classes, 'ראשון - חמישי', '9:00 - 17:00')}
-                      {this.mapHoursRow(classes, 'שישי', '9:00 - 13:00')}
-                      {this.mapHoursRow(classes, 'שבת', 'סגור')}                      
+                      {this.mapHoursRow(classnames(classes.hoursRowFirst, classes.hoursRow), 'ראשון - חמישי', '9:00 - 17:00')}
+                      {this.mapHoursRow(classes.hoursRow, 'שישי', '9:00 - 13:00')}
+                      {this.mapHoursRow(classes.hoursRow, 'שבת', 'סגור')}                      
                     </List>
                 </Grid>
                 <Grid item>

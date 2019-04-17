@@ -4,12 +4,12 @@ import React, { Component } from 'react';
 import AppContentLayout from '../../Layouts/AppContentLayout';
 import AppTitleLayout from '../../Layouts/AppTitleLayout';
 
-class Contact extends Component {
+class AssetsSearch extends Component {
     render() {
         return (
             <React.Fragment>
                 <AppTitleLayout>
-                    צור קשר 
+                    חיפוש נכסים
                 </AppTitleLayout>
                 <AppContentLayout>
                     תוכן
@@ -19,4 +19,4 @@ s                </AppContentLayout>
     }
 }
 
-export default Contact;
+export default AssetsSearch;
