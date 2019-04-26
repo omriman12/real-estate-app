@@ -1,0 +1,6 @@
+.slick-next:before, .slick-prev:before{ color: black !important; font-size: 25px;}
+.slick-next { right: -20px; }
+.listprice { position:relative; top:-55px; left: 30px; display:inline;}
+.listprice p { display:inline; width:auto; background:white; padding:10px 20px; border-radius:5px; font-size:20px; }
+.listprice p:hover {    background: #947054;    color: white; }
+
