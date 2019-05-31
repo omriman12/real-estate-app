@@ -24,9 +24,9 @@ class Home extends Component {
                 <section>
                     <PromotedAssetsSection/>
                 </section>
-                <section>
+                {/* <section>
                     <SearchAssetsSection/>
-                </section>
+                </section> */}
             </React.Fragment> 
         );
     }
